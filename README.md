@@ -28,4 +28,22 @@ ls nushell/ | get name | each {|repo|
         extension: "nuon"
     } | path join)
 }
+
+# save the full history files
+for repo in (ls nushell/ | get name) {
+    print $"(ansi erase_line)building history of ($repo)"
+
+    {
+        parent: $repo
+        stem: "issues"
+        extension: "nuon"
+    } | path join
+    | open
+    | build history
+    | save ({
+        parent: $repo
+        stem: "history"
+        extension: "nuon"
+    } | path join)
+}
 ```
