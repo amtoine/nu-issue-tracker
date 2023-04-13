@@ -77,3 +77,8 @@ for repo in (ls nushell/ | get name) {
     } | path join)
 }
 ```
+
+## the issue trackers
+
+### nushell/nushell
+![nushell/nushell](nushell/nushell/history.png)
