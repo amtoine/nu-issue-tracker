@@ -92,3 +92,30 @@ export def "build history" [] {
 
     $count
 }
+
+export def "update issue tracker" [
+    org: string
+    repo: string
+] {
+    let path = ({
+        parent: ([$org $repo] | path join)
+        stem: "history"
+        extension: "nuon"
+    } | path join)
+
+    {
+        date: (date now | date format "%Y-%m-%d")
+        issues: (
+            http get ({
+                scheme: https
+                host: api.github.com
+                path: $"/orgs/($org)/repos"
+                params: {
+                    per_page: 100
+                    page: 1
+                }
+            } | url join)
+            | where name == $repo
+            | get open_issues_count
+        )
+}
