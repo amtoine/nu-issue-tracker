@@ -6,6 +6,7 @@ if __name__ == "__main__":
     repo = sys.argv[1]
     data = json.loads(sys.argv[2])
     date = sys.argv[3]
+    filename = sys.argv[4]
 
     dates = [value["when"] for value in data]
     issues = [value["issues"] for value in data]
@@ -15,4 +16,5 @@ if __name__ == "__main__":
     plt.ylabel("number of issues in the tracker")
     plt.title("number of issues over time")
     plt.legend()
-    plt.show()
+
+    plt.savefig(filename)
