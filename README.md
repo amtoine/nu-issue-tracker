@@ -80,5 +80,17 @@ for repo in (ls nushell/ | get name) {
 
 ## the issue trackers
 
+### nushell/nu-ansi-term
+![nushell/nu-ansi-term](nushell/nu-ansi-term/history.png)
+
+### nushell/nu_scripts
+![nushell/nu_scripts](nushell/nu_scripts/history.png)
+
 ### nushell/nushell
 ![nushell/nushell](nushell/nushell/history.png)
+
+### nushell/nushell.github.io
+![nushell/nushell.github.io](nushell/nushell.github.io/history.png)
+
+### nushell/reedline
+![nushell/reedline](nushell/reedline/history.png)
