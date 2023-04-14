@@ -27,9 +27,8 @@ jobs:
 
       - name: Update the trackers and generate figures
         run: |
-          use mod.nu *
-          update issue trackers
-          generate figures
+          ./update-issue-trackers.nu
+          ./generate-figures.nu
 
       - name: Commit the change
         run: |
