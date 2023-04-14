@@ -120,3 +120,41 @@ export def "update issue tracker" [
         )
     }) | save --force $path
 }
+
+export def "update issue trackers" [] {
+    ls **/history.nuon | get name | each {|path|
+        let repo = ($path | path parse | get parent)
+
+        print -n $"(ansi erase_line)updating issue tracker of ($repo)\r"
+
+        let org = ($repo | path dirname)
+        let repo = ($repo | path basename)
+        update issue tracker $org $repo
+    }
+}
+
+export def "generate figures" [] {
+    for path in (ls **/history.nuon | get name) {
+        let repo = ($path | path parse | get parent)
+
+        print -n $"(ansi erase_line)generating figure of ($repo)\r"
+
+        python plot.py $repo (
+            $path | open
+            | upsert when {|it|
+                $it.date - (date now)
+                | into duration --convert day
+                | str replace " day" ""
+                | into decimal
+                | math round
+            }
+            | to json
+        ) (
+            date now | date format "%Y-%m-%d"
+        ) ({
+            parent: $repo
+            stem: "history"
+            extension: "png"
+        } | path join)
+    }
+}
