@@ -1,0 +1,37 @@
+name: Update trackers and generate figures
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '* 0 * * *'
+
+defaults:
+  run:
+    shell: nu {0}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: hustcer/setup-nu@main
+        with:
+          version: '*'
+
+      - name: Configure git
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+    - run: |
+        use mod.nu *
+        update issue trackers
+        generate figures
+
+      - name: Commit the change
+        run: |
+          git add .
+          git commit -m $"update trackers and generate figures (char lparen)(date now | date format '%Y-%m-%d')(char rparen)"
+          git push
