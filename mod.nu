@@ -103,8 +103,8 @@ export def "update issue tracker" [
         extension: "nuon"
     } | path join)
 
-    {
-        date: (date now | date format "%Y-%m-%d")
+    $path | open | append ({
+        date: (date now)
         issues: (
             http get ({
                 scheme: https
@@ -116,7 +116,7 @@ export def "update issue tracker" [
                 }
             } | url join)
             | where name == $repo
-            | get open_issues_count
+            | get open_issues_count.0
         )
-    }
+    }) | save --force $path
 }
