@@ -25,10 +25,11 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-    - run: |
-        use mod.nu *
-        update issue trackers
-        generate figures
+      - name: Update the trackers and generate figures
+        run: |
+          use mod.nu *
+          update issue trackers
+          generate figures
 
       - name: Commit the change
         run: |
