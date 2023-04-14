@@ -20,6 +20,9 @@ jobs:
         with:
           version: '*'
 
+      - name: System dependencies
+        run: pip install matplotlib
+
       - name: Configure git
         run: |
           git config user.name github-actions
