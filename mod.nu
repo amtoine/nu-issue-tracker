@@ -118,4 +118,5 @@ export def "update issue tracker" [
             | where name == $repo
             | get open_issues_count
         )
+    }
 }
