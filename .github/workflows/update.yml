@@ -36,5 +36,5 @@ jobs:
       - name: Commit the change
         run: |
           git add .
-          git commit -m $"update trackers and generate figures (char lparen)(date now | date format '%Y-%m-%d')(char rparen)"
+          git commit -m $"update trackers and generate figures (char lparen)(date now | date format "%Y-%m-%d.%H:%M:%S")(char rparen)"
           git push
