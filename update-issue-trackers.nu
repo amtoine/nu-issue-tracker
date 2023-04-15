@@ -25,7 +25,7 @@ def "update issue tracker" [
             | where name == $repo
             | get open_issues_count.0
         )
-    }) | save --force $path
+    }) | to nuon -i 4 | save --force $path
 }
 
 def main [] {
