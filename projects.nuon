@@ -1,0 +1,7 @@
+[
+    nushell/nu-ansi-term,
+    nushell/nu_scripts,
+    nushell/nushell,
+    nushell/nushell.github.io,
+    nushell/reedline
+]
