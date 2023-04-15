@@ -29,9 +29,7 @@ def "update issue tracker" [
 }
 
 def main [] {
-    ls **/history.nuon | get name | each {|path|
-        let repo = ($path | path parse | get parent)
-
+    open projects.nuon | each {|repo|
         print -n $"(ansi erase_line)updating issue tracker of ($repo)\r"
 
         let org = ($repo | path dirname)

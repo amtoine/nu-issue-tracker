@@ -1,13 +1,16 @@
 #!/usr/bin/env nu
 
 def main [] {
-    for path in (ls **/history.nuon | get name) {
-        let repo = ($path | path parse | get parent)
-
+    for repo in (open projects.nuon) {
         print -n $"(ansi erase_line)generating figure of ($repo)\r"
 
         python plot.py $repo (
-            $path | open
+            {
+                parent: $repo
+                stem: "history"
+                extension: "nuon"
+            } | path join
+            | open
             | upsert when {|it|
                 $it.date - (date now)
                 | into duration --convert day
