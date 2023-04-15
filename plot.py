@@ -1,4 +1,5 @@
 import json
+from matplotlib.pyplot import figure
 import matplotlib.pyplot as plt
 import sys
 
@@ -10,6 +11,9 @@ if __name__ == "__main__":
 
     dates = [value["when"] for value in data]
     issues = [value["issues"] for value in data]
+
+    figure(figsize=(19.20, 10.80), dpi=100)
+
     plt.plot(dates, issues, label=f"{repo}")
 
     plt.xlabel(f"time in days: 0 is the current date ({date})")
