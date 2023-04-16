@@ -53,7 +53,7 @@ for repo in (ls nushell/ | get name) {
 use the `update-issue-trackers.nu` script
 
 ### generate the figures
-use the `generate-figures.nu` script
+use the `generate-figures.nu` script and then something like `feh **/history.png`
 
 ### automatic updates
 `github-actions` updates the repo automatically every day at midnight, see the [`update` CI pipeline](.github/workflows/update.yml)
