@@ -57,19 +57,3 @@ use the `generate-figures.nu` script
 
 ### automatic updates
 `github-actions` updates the repo automatically every day at midnight, see the [`update` CI pipeline](.github/workflows/update.yml)
-
-## the issue trackers
-### nushell/nu-ansi-term
-![nushell/nu-ansi-term](nushell/nu-ansi-term/history.png)
-
-### nushell/nu_scripts
-![nushell/nu_scripts](nushell/nu_scripts/history.png)
-
-### nushell/nushell
-![nushell/nushell](nushell/nushell/history.png)
-
-### nushell/nushell.github.io
-![nushell/nushell.github.io](nushell/nushell.github.io/history.png)
-
-### nushell/reedline
-![nushell/reedline](nushell/reedline/history.png)
