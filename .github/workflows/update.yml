@@ -1,4 +1,4 @@
-name: Update trackers and generate figures
+name: Update trackers
 
 on:
   workflow_dispatch:
@@ -28,13 +28,11 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-      - name: Update the trackers and generate figures
-        run: |
-          ./update-issue-trackers.nu
-          ./generate-figures.nu
+      - name: Update the trackers
+        run: ./update-issue-trackers.nu
 
       - name: Commit the change
         run: |
           git add .
-          git commit -m $"update trackers and generate figures (char lparen)(date now | date format "%Y-%m-%dT%H:%M:%S")(char rparen)"
+          git commit -m $"update trackers (char lparen)(date now | date format "%Y-%m-%dT%H:%M:%S")(char rparen)"
           git push
