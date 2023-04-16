@@ -50,10 +50,11 @@ for repo in (ls nushell/ | get name) {
 
 ## update the repo
 ### update the issue trackers
-use the `update-issue-trackers.nu` script
+use the `update-issue-trackers.nu` script.
 
 ### generate the figures
-use the `generate-figures.nu` script and then something like `feh **/history.png`
+use the `generate-figures.nu` script and then something like `feh **/history.png`.
 
 ### automatic updates
-`github-actions` updates the repo automatically every day at midnight, see the [`update` CI pipeline](.github/workflows/update.yml)
+`github-actions` updates the repo automatically every day at midnight, see the
+[`update` CI pipeline](.github/workflows/update.yml).
