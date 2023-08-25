@@ -67,14 +67,14 @@ export def "build history" [] {
 
     let issues = (
         $data
-        | default ((date now) + 1day | date format "%Y-%m-%d") closed_at
+        | default ((date now) + 1day | format date "%Y-%m-%d") closed_at
         | into datetime created_at closed_at
     )
 
     let dates = (
         seq date
-            -b ($issues | sort-by created_at | get 0.created_at | date format "%Y-%m-%d")
-            -e (date now | date format "%Y-%m-%d")
+            -b ($issues | sort-by created_at | get 0.created_at | format date "%Y-%m-%d")
+            -e (date now | format date "%Y-%m-%d")
         | into datetime
     )
 

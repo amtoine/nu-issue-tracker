@@ -34,5 +34,5 @@ jobs:
       - name: Commit the change
         run: |
           git add .
-          git commit -m $"update trackers (char lparen)(date now | date format "%Y-%m-%dT%H:%M:%S")(char rparen)"
+          git commit -m $"update trackers (char lparen)(date now | format date "%Y-%m-%dT%H:%M:%S")(char rparen)"
           git push

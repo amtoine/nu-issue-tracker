@@ -20,7 +20,7 @@ def main [] {
             }
             | to json
         ) (
-            date now | date format "%Y-%m-%dT%H:%M:%S"
+            date now | format date "%Y-%m-%dT%H:%M:%S"
         ) ({
             parent: $repo
             stem: "history"
