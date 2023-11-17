@@ -31,6 +31,11 @@ jobs:
       - name: Update the trackers
         run: ./update-issue-trackers.nu
 
+      - name: Some debug
+        run: |
+          git log --graph --branches --remotes --tags --oneline --decorate
+          git remote --verbose show
+
       - name: Commit the change
         run: |
           git add .
